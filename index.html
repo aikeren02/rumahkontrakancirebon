@@ -1,0 +1,1363 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rumah Dikontrak - Perumahan Cempaka Wangi Regency, Talun Cirebon</title>
+    <style>
+        /* ===== RESET & BASE ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #333;
+            line-height: 1.6;
+            background-color: #f9f9f9;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* ===== NAVBAR ===== */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.97);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+        }
+
+        .navbar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .navbar .logo {
+            font-size: 1.3rem;
+            font-weight: 800;
+            color: #2c6e49;
+        }
+
+        .navbar .logo span {
+            color: #f4a261;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            font-weight: 500;
+            font-size: 0.95rem;
+            color: #555;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: #2c6e49;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #2c6e49;
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: #333;
+            border-radius: 3px;
+            transition: 0.3s;
+        }
+
+        /* ===== HERO ===== */
+        .hero {
+    min-height: 100vh;
+    background: linear-gradient(135deg, rgba(44, 110, 73, 0.8), rgba(30, 80, 50, 0.85)),
+                url('hero-bg.jpg') center/cover no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    padding: 100px 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(ellipse at center, transparent 0%, rgba(0,0,0,0.1) 100%);
+            animation: heroFloat 15s ease-in-out infinite;
+        }
+
+        @keyframes heroFloat {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            33% { transform: translate(30px, -30px) rotate(1deg); }
+            66% { transform: translate(-20px, 20px) rotate(-1deg); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(244, 162, 97, 0.9);
+            color: white;
+            padding: 8px 24px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            animation: fadeInDown 0.8s ease;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .hero h1 {
+            font-size: 3.2rem;
+            font-weight: 800;
+            margin-bottom: 15px;
+            line-height: 1.2;
+            animation: fadeInUp 1s ease;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+
+        .hero .address {
+            font-size: 1.2rem;
+            opacity: 0.95;
+            margin-bottom: 10px;
+            animation: fadeInUp 1.2s ease;
+        }
+
+        .hero .price-tag {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin: 25px 0;
+            animation: fadeInUp 1.4s ease;
+            text-shadow: 0 2px 15px rgba(0,0,0,0.3);
+        }
+
+        .hero .price-tag small {
+            font-size: 1rem;
+            font-weight: 400;
+            opacity: 0.9;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeInUp 1.6s ease;
+            margin-top: 30px;
+        }
+
+        .btn {
+            padding: 14px 35px;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            border: none;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-primary {
+            background: #f4a261;
+            color: white;
+            box-shadow: 0 4px 15px rgba(244, 162, 97, 0.4);
+        }
+
+        .btn-primary:hover {
+            background: #e76f51;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(244, 162, 97, 0.5);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: white;
+            border: 2px solid rgba(255,255,255,0.7);
+        }
+
+        .btn-outline:hover {
+            background: white;
+            color: #2c6e49;
+            transform: translateY(-3px);
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ===== SECTIONS ===== */
+        section {
+            padding: 80px 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: #2c6e49;
+            margin-bottom: 10px;
+        }
+
+        .section-title p {
+            color: #777;
+            font-size: 1.05rem;
+        }
+
+        .section-title .underline {
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(90deg, #2c6e49, #f4a261);
+            margin: 15px auto 0;
+            border-radius: 2px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* ===== DETAIL PROPERTI ===== */
+        #detail {
+            background: white;
+        }
+
+        .detail-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .detail-image {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+        }
+
+        .detail-image .placeholder-img {
+            width: 100%;
+            height: 400px;
+            background: linear-gradient(135deg, #a8d5ba, #2c6e49);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 4rem;
+        }
+
+        .detail-image .badge-status {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: #e76f51;
+            color: white;
+            padding: 8px 18px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 0.85rem;
+        }
+
+        .detail-info h3 {
+            font-size: 1.8rem;
+            color: #2c6e49;
+            margin-bottom: 15px;
+        }
+
+        .detail-info p {
+            color: #666;
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+
+        .specs {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-top: 25px;
+        }
+
+        .spec-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 15px;
+            background: #f0f7f2;
+            border-radius: 12px;
+            transition: transform 0.3s;
+        }
+
+        .spec-item:hover {
+            transform: translateY(-3px);
+        }
+
+        .spec-icon {
+            width: 45px;
+            height: 45px;
+            background: linear-gradient(135deg, #2c6e49, #4a9c6d);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            color: white;
+            flex-shrink: 0;
+        }
+
+        .spec-text .label {
+            font-size: 0.8rem;
+            color: #888;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .spec-text .value {
+            font-weight: 700;
+            color: #333;
+            font-size: 1rem;
+        }
+
+        /* ===== FASILITAS ===== */
+        #fasilitas {
+            background: #f0f7f2;
+        }
+
+        .fasilitas-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+
+        .fasilitas-card {
+            background: white;
+            padding: 30px;
+            border-radius: 16px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .fasilitas-card:hover {
+            transform: translateY(-8px);
+            border-color: #2c6e49;
+            box-shadow: 0 15px 40px rgba(44, 110, 73, 0.15);
+        }
+
+        .fasilitas-card .icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin: 0 auto 18px;
+            transition: all 0.3s;
+        }
+
+        .fasilitas-card:hover .icon {
+            background: linear-gradient(135deg, #2c6e49, #4a9c6d);
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .fasilitas-card h4 {
+            font-size: 1.1rem;
+            color: #333;
+            margin-bottom: 8px;
+        }
+
+        .fasilitas-card p {
+            color: #888;
+            font-size: 0.9rem;
+        }
+
+        /* ===== GALERI ===== */
+        #galeri {
+            background: white;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: 16px;
+            overflow: hidden;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: all 0.3s;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.03);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+
+        .gallery-item:first-child {
+            grid-column: span 2;
+            grid-row: span 2;
+        }
+
+        .gallery-item .placeholder {
+            width: 100%;
+            height: 100%;
+            min-height: 200px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+            gap: 8px;
+        }
+
+        .gallery-item:first-child .placeholder {
+            min-height: 420px;
+            font-size: 1.1rem;
+        }
+
+        .gallery-item:nth-child(1) .placeholder { background: linear-gradient(135deg, #2c6e49, #1a4a30); }
+        .gallery-item:nth-child(2) .placeholder { background: linear-gradient(135deg, #5a8c69, #3a6c49); }
+        .gallery-item:nth-child(3) .placeholder { background: linear-gradient(135deg, #8fbc8f, #6a9c6a); }
+        .gallery-item:nth-child(4) .placeholder { background: linear-gradient(135deg, #a8d5ba, #7ab890); }
+        .gallery-item:nth-child(5) .placeholder { background: linear-gradient(135deg, #4a7c59, #2c5e39); }
+
+        .gallery-item .overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 20px;
+            background: linear-gradient(transparent, rgba(0,0,0,0.7));
+            color: white;
+            font-weight: 600;
+            transform: translateY(100%);
+            transition: transform 0.3s;
+        }
+
+        .gallery-item:hover .overlay {
+            transform: translateY(0);
+        }
+
+        /* ===== LOKASI ===== */
+        #lokasi {
+            background: #f0f7f2;
+        }
+
+        .lokasi-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: start;
+        }
+
+        .map-placeholder {
+            width: 100%;
+            height: 400px;
+            background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
+            border-radius: 16px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: #2c6e49;
+            font-size: 1.1rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            border: 2px dashed #a8d5ba;
+        }
+
+        .map-placeholder .map-icon {
+            font-size: 4rem;
+            margin-bottom: 15px;
+        }
+
+        .landmark-list {
+            list-style: none;
+        }
+
+        .landmark-list li {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 18px 0;
+            border-bottom: 1px solid #e0e0e0;
+            transition: all 0.3s;
+        }
+
+        .landmark-list li:hover {
+            padding-left: 10px;
+        }
+
+        .landmark-list li:last-child {
+            border-bottom: none;
+        }
+
+        .landmark-icon {
+            width: 45px;
+            height: 45px;
+            background: linear-gradient(135deg, #2c6e49, #4a9c6d);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            color: white;
+            flex-shrink: 0;
+        }
+
+        .landmark-info .name {
+            font-weight: 600;
+            color: #333;
+        }
+
+        .landmark-info .distance {
+            font-size: 0.85rem;
+            color: #888;
+        }
+
+        /* ===== HARGA & KONTAK ===== */
+        #kontak {
+            background: white;
+        }
+
+        .pricing-card {
+            max-width: 600px;
+            margin: 0 auto;
+            background: linear-gradient(135deg, #2c6e49, #1a4a30);
+            border-radius: 24px;
+            padding: 50px 40px;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(44, 110, 73, 0.3);
+        }
+
+        .pricing-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+        }
+
+        .pricing-card .price-label {
+            font-size: 1rem;
+            opacity: 0.8;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+        }
+
+        .pricing-card .price {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 5px;
+        }
+
+        .pricing-card .price-period {
+            font-size: 1.1rem;
+            opacity: 0.8;
+            margin-bottom: 30px;
+        }
+
+        .pricing-card .features {
+            list-style: none;
+            text-align: left;
+            margin: 30px 0;
+        }
+
+        .pricing-card .features li {
+            padding: 10px 0;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        .pricing-card .features li .check {
+            color: #f4a261;
+            font-weight: bold;
+        }
+
+        .contact-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+
+        .btn-whatsapp {
+            background: #25d366;
+            color: white;
+            padding: 16px 35px;
+            border-radius: 50px;
+            font-size: 1.05rem;
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+            border: none;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+        }
+
+        .btn-whatsapp:hover {
+            background: #1da851;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.5);
+        }
+
+        .btn-phone {
+            background: white;
+            color: #2c6e49;
+            padding: 16px 35px;
+            border-radius: 50px;
+            font-size: 1.05rem;
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+            border: none;
+            transition: all 0.3s;
+        }
+
+        .btn-phone:hover {
+            background: #f0f7f2;
+            transform: translateY(-3px);
+        }
+
+        /* ===== SYARAT ===== */
+        #syarat {
+            background: #f0f7f2;
+        }
+
+        .syarat-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .syarat-card {
+            background: white;
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            border-left: 4px solid #2c6e49;
+        }
+
+        .syarat-card h4 {
+            color: #2c6e49;
+            margin-bottom: 12px;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .syarat-card ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .syarat-card ul li {
+            padding: 6px 0;
+            color: #666;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+        }
+
+        .syarat-card ul li::before {
+            content: '✓';
+            color: #2c6e49;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            background: #1a1a2e;
+            color: white;
+            padding: 50px 20px 25px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 30px;
+        }
+
+        .footer-section h3 {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            color: #f4a261;
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: #aaa;
+            font-size: 0.95rem;
+            line-height: 1.8;
+        }
+
+        .footer-section a:hover {
+            color: #f4a261;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 25px;
+            border-top: 1px solid #333;
+            color: #666;
+            font-size: 0.85rem;
+        }
+
+        /* ===== FLOATING WA ===== */
+        .wa-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: #25d366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.8rem;
+            box-shadow: 0 5px 25px rgba(37, 211, 102, 0.4);
+            z-index: 999;
+            transition: all 0.3s;
+            cursor: pointer;
+            animation: pulse 2s infinite;
+        }
+
+        .wa-float:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 35px rgba(37, 211, 102, 0.6);
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.5); }
+            70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: white;
+                flex-direction: column;
+                padding: 20px 40px;
+                gap: 15px;
+                box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero .price-tag {
+                font-size: 1.8rem;
+            }
+
+            .detail-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .gallery-item:first-child {
+                grid-column: span 2;
+                grid-row: span 1;
+            }
+
+            .gallery-item:first-child .placeholder {
+                min-height: 250px;
+            }
+
+            .lokasi-content {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+
+            .specs {
+                grid-template-columns: 1fr;
+            }
+
+            .pricing-card {
+                padding: 35px 25px;
+            }
+
+            .pricing-card .price {
+                font-size: 2.2rem;
+            }
+
+            section {
+                padding: 60px 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 1.6rem;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery-item:first-child {
+                grid-column: span 1;
+            }
+
+            .contact-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+/* Atur agar gambar responsif & tidak gepeng */
+.detail-image img,
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.05);
+}
+
+/* Placeholder fallback jika gambar gagal load */
+.detail-image::before,
+.gallery-item::before {
+    content: '📷';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 3rem;
+    color: #ccc;
+    z-index: 1;
+}
+    </style>
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">Kontrakan Rumah<span> Cirebon</span></div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#detail">Detail</a></li>
+                <li><a href="#fasilitas">Fasilitas</a></li>
+                <li><a href="#galeri">Galeri</a></li>
+                <li><a href="#lokasi">Lokasi</a></li>
+                <li><a href="#syarat">Syarat</a></li>
+                <li><a href="#kontak">Kontak</a></li>
+            </ul>
+            <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-badge">🏠 Tersedia untuk Dikontrak</div>
+            <h1>Rumah Tinggal Nyaman di Perumahan Cempaka Wangi Regency</h1>
+            <p class="address">📍 Blok I No. 14, Kec. Talun, Kab. Cirebon, Jawa Barat</p>
+            <div class="price-tag">
+                Hubungi Kami <small>untuk harga terbaik</small>
+            </div>
+            <div class="hero-buttons">
+                <a href="https://wa.me/6287713981477?text=Halo,%20saya%20tertarik%20dengan%20rumah%20kontrakan%20di%20Cempaka%20Wangi%20Regency" class="btn btn-primary" target="_blank">
+                    💬 Chat WhatsApp
+                </a>
+                <a href="#detail" class="btn btn-outline">
+                    Lihat Detail ↓
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- DETAIL PROPERTI -->
+    <section id="detail">
+        <div class="container">
+            <div class="section-title">
+                <h2>Detail Properti</h2>
+                <p>Rumah tinggal yang nyaman dan strategis di kawasan perumahan</p>
+                <div class="underline"></div>
+            </div>
+            <div class="detail-image">
+    <img src="tampak-depan.jpg" alt="Tampak Depan Rumah Cempaka Wangi Regency" loading="lazy">
+    <div class="badge-status">Dikontrakkan</div>
+</div>
+                <div class="detail-info">
+                    <h3>Rumah Tinggal - Cempaka Wangi Regency</h3>
+                    <p>
+                        Rumah tinggal yang tersedia untuk dikontrak di kawasan Perumahan Cempaka Wangi Regency. 
+                        Lokasi strategis di Kecamatan Talun, Kabupaten Cirebon. Lingkungan perumahan yang aman, 
+                        nyaman, dan asri. Cocok untuk keluarga yang mencari hunian berkualitas dengan harga terjangkau.
+                    </p>
+                    <div class="specs">
+                        <div class="spec-item">
+                            <div class="spec-icon">🛏️</div>
+                            <div class="spec-text">
+                                <div class="label">Kamar Tidur</div>
+                                <div class="value">2 Kamar</div>
+                            </div>
+                        </div>
+                        <div class="spec-item">
+                            <div class="spec-icon">🚿</div>
+                            <div class="spec-text">
+                                <div class="label">Kamar Mandi</div>
+                                <div class="value">1 Kamar</div>
+                            </div>
+                        </div>
+                        <div class="spec-item">
+                            <div class="spec-icon">📐</div>
+                            <div class="spec-text">
+                                <div class="label">Luas Bangunan</div>
+                                <div class="value">36 m²</div>
+                            </div>
+                        </div>
+                        <div class="spec-item">
+                            <div class="spec-icon">🏗️</div>
+                            <div class="spec-text">
+                                <div class="label">Luas Tanah</div>
+                                <div class="value">72 m²</div>
+                            </div>
+                        </div>
+                        <div class="spec-item">
+                            <div class="spec-icon">🚗</div>
+                            <div class="spec-text">
+                                <div class="label">Carport</div>
+                                <div class="value">1 Mobil</div>
+                            </div>
+                        </div>
+                        <div class="spec-item">
+                            <div class="spec-icon">🔌</div>
+                            <div class="spec-text">
+                                <div class="label">Listrik</div>
+                                <div class="value">1300 Watt</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FASILITAS -->
+    <section id="fasilitas">
+        <div class="container">
+            <div class="section-title">
+                <h2>Fasilitas Rumah</h2>
+                <p>Berbagai fasilitas yang tersedia untuk kenyamanan Anda</p>
+                <div class="underline"></div>
+            </div>
+            <div class="fasilitas-grid">
+                <div class="fasilitas-card">
+                    <div class="icon">🛋️</div>
+                    <h4>Ruang Tamu</h4>
+                    <p>Ruang tamu yang luas dan nyaman untuk menerima tamu</p>
+                </div>
+                <div class="fasilitas-card">
+                    <div class="icon">🍳</div>
+                    <h4>Dapur</h4>
+                    <p>Dapur bersih dengan area memasak yang memadai</p>
+                </div>
+                <div class="fasilitas-card">
+                    <div class="icon">🚿</div>
+                    <h4>Kamar Mandi</h4>
+                    <p>Kamar mandi dalam dengan air yang lancar</p>
+                </div>
+                <div class="fasilitas-card">
+                    <div class="icon">🚗</div>
+                    <h4>Carport</h4>
+                    <p>Area parkir untuk 1 mobil dan motor</p>
+                </div>
+                <div class="fasilitas-card">
+                    <div class="icon">💧</div>
+                    <h4>Sumber Air</h4>
+                    <p>Sumur bor / Jetpump</p>
+                </div>
+                <div class="fasilitas-card">
+                    <div class="icon">🔌</div>
+                    <h4>Listrik PLN</h4>
+                    <p>Listrik PLN 1300 watt siap pakai</p>
+                </div>
+                <div class="fasilitas-card">
+                    <div class="icon">🏘️</div>
+                    <h4>Lingkungan Aman</h4>
+                    <p>Kawasan perumahan dengan keamanan 24 jam</p>
+                </div>
+                <div class="fasilitas-card">
+                    <div class="icon">🌳</div>
+                    <h4>Lingkungan Asri</h4>
+                    <p>Hijau, bersih, dan jauh dari kebisingan</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GALERI -->
+    <section id="galeri">
+        <div class="container">
+            <div class="section-title">
+                <h2>Galeri Foto</h2>
+                <p>Tampilan rumah dari berbagai sudut</p>
+                <div class="underline"></div>
+            </div>
+            <div class="gallery-grid">
+    <div class="gallery-item">
+        <img src="ruang-tamu.jpg" alt="Ruang Tamu" loading="lazy">
+        <div class="overlay">Ruang Tamu</div>
+    </div>
+    <div class="gallery-item">
+        <img src="kamar-tidur.jpg" alt="Kamar Tidur Utama" loading="lazy">
+        <div class="overlay">Kamar Tidur</div>
+    </div>
+    <div class="gallery-item">
+        <img src="dapur.jpg" alt="Area Dapur" loading="lazy">
+        <div class="overlay">Dapur</div>
+    </div>
+    <div class="gallery-item">
+        <img src="carport.jpg" alt="Area Carport & Parkir" loading="lazy">
+        <div class="overlay">Carport</div>
+    </div>
+    <div class="gallery-item">
+        <img src="tampak-depan.jpg" alt="Tampak Samping Rumah" loading="lazy">
+        <div class="overlay">Tampak Samping</div>
+    </div>
+</div>
+    </section>
+
+    <!-- LOKASI -->
+    <section id="lokasi">
+        <div class="container">
+            <div class="section-title">
+                <h2>Lokasi Strategis</h2>
+                <p>Akses mudah ke berbagai fasilitas umum</p>
+                <div class="underline"></div>
+            </div>
+            <div class="lokasi-content">
+                <div class="map-placeholder">
+                    <div class="map-icon">📍</div>
+                    <p><strong>Perumahan Cempaka Wangi Regency</strong></p>
+                    <p>Blok I No. 14, Kec. Talun, Kab. Cirebon</p>
+                    <br>
+                    <a href="https://maps.google.com/?q=Perumahan+Cempaka+Wangi+Regency+Talun+Cirebon" target="_blank" class="btn btn-primary" style="font-size:0.9rem; padding: 10px 25px;">
+                        🗺️ Buka di Google Maps
+                    </a>
+                </div>
+                <div>
+                    <h3 style="color: #2c6e49; margin-bottom: 20px; font-size: 1.4rem;">Tempat Terdekat</h3>
+                    <ul class="landmark-list">
+                        <li>
+                            <div class="landmark-icon">🏫</div>
+                            <div class="landmark-info">
+                                <div class="name">Sekolah & Fasilitas Pendidikan</div>
+                                <div class="distance">± 500 meter</div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="landmark-icon">🏪</div>
+                            <div class="landmark-info">
+                                <div class="name">Pasar & Pusat Perbelanjaan</div>
+                                <div class="distance">± 1 km</div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="landmark-icon">🏥</div>
+                            <div class="landmark-info">
+                                <div class="name">Puskesmas / Klinik Kesehatan</div>
+                                <div class="distance">± 1.5 km</div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="landmark-icon">🕌</div>
+                            <div class="landmark-info">
+                                <div class="name">Masjid & Tempat Ibadah</div>
+                                <div class="distance">± 300 meter</div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="landmark-icon">🛣️</div>
+                            <div class="landmark-info">
+                                <div class="name">Akses Jalan Raya Talun</div>
+                                <div class="distance">± 500 meter</div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="landmark-icon">🏦</div>
+                            <div class="landmark-info">
+                                <div class="name">Bank & ATM</div>
+                                <div class="distance">± 1 km</div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SYARAT -->
+    <section id="syarat">
+        <div class="container">
+            <div class="section-title">
+                <h2>Syarat & Ketentuan</h2>
+                <p>Informasi penting sebelum melakukan kontrak</p>
+                <div class="underline"></div>
+            </div>
+            <div class="syarat-grid">
+                <div class="syarat-card">
+                    <h4>📋 Syarat Kontrak</h4>
+                    <ul>
+                      
+                       	<li>Membuat surat perjanjian kontrak</li>
+                        <li>Menyertakan fotokopi KTP penyewa</li>
+                        <li>Minimal kontrak 1 tahun</li>
+                    </ul>
+                </div>
+                <div class="syarat-card">
+                    <h4>📌 Ketentuan</h4>
+                    <ul>
+                        <li>Bayar tepat waktu sesuai jadwal yang disepakati</li>
+                        <li>Menjaga kebersihan dan ketertiban lingkungan</li>
+                        <li>Tidak mengubah struktur bangunan tanpa izin</li>
+                        <li>Biaya listrik, air, dan iuran lingkungan ditanggung penyewa</li>
+                        <li>Hunian hanya untuk tempat tinggal, bukan usaha</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- HARGA & KONTAK -->
+    <section id="kontak">
+        <div class="container">
+            <div class="section-title">
+                <h2>Hubungi Kami</h2>
+                <p>Minat? Segera hubungi kami untuk informasi lebih lanjut</p>
+                <div class="underline"></div>
+            </div>
+            <div class="pricing-card">
+                <div class="price-label">Rp 10.0000.000,- /tahun</div>
+                <div class="price">Hubungi Kami</div>
+                <div class="price-period">Harga Nego • Kontrak Minimal 1 Tahun</div>
+                <ul class="features">
+                    <li><span class="check">✓</span> Lokasi strategis di kawasan perumahan</li>
+                    <li><span class="check">✓</span> Lingkungan aman, nyaman & asri</li>
+                    <li><span class="check">✓</span> Akses mudah ke fasilitas umum</li>
+                    <li><span class="check">✓</span> Harga bersaing & bisa nego</li>
+                    <li><span class="check">✓</span> Surat perjanjian kontrak resmi</li>
+                    <li><span class="check">✓</span> Bisa survei langsung ke lokasi</li>
+                </ul>
+                <div class="contact-buttons">
+                    <a href="https://wa.me/6287713981477?text=Halo,%20saya%20tertarik%20dengan%20rumah%20kontrakan%20di%20Cempaka%20Wangi%20Regency%20Blok%20I%20No.14.%20Bisa%20info%20lebih%20lanjut?" class="btn-whatsapp" target="_blank">
+                        💬 Chat via WhatsApp
+                    </a>
+                    <a href="tel:+6287713981477" class="btn-phone">
+                        📞 Telepon Langsung
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Cempaka Wangi Regency</h3>
+                <p>
+                    Rumah tinggal yang dikontrakkan di Perumahan Cempaka Wangi Regency, 
+                    Blok I No. 14, Kecamatan Talun, Kabupaten Cirebon, Jawa Barat. 
+                    Hunian nyaman untuk keluarga Anda.
+                </p>
+            </div>
+            <div class="footer-section">
+                <h3>Menu</h3>
+                <p><a href="#detail">Detail Properti</a></p>
+                <p><a href="#fasilitas">Fasilitas</a></p>
+                <p><a href="#galeri">Galeri</a></p>
+                <p><a href="#lokasi">Lokasi</a></p>
+                <p><a href="#kontak">Kontak</a></p>
+            </div>
+            <div class="footer-section">
+                <h3>Kontak</h3>
+                <p>📱 0877-1398-1477</p>
+                <p>💬 WhatsApp tersedia</p>
+                <p>📍 Cempaka Wangi Regency</p>
+                <p>🏘️ Blok I No. 14, Talun, Cirebon</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Rumah Kontrakan Cirebon. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- FLOATING WHATSAPP -->
+    <a href="https://wa.me/6287713981477?text=Halo,%20saya%20tertarik%20dengan%20rumah%20kontrakan%20di%20Cempaka%20Wangi%20Regency" class="wa-float" target="_blank" title="Chat WhatsApp">
+        💬
+    </a>
+
+    <script>
+        // Toggle mobile menu
+        function toggleMenu() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.toggle('active');
+        }
+
+        // Close menu on link click
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('navLinks').classList.remove('active');
+            });
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.style.padding = '5px 0';
+            } else {
+                navbar.style.padding = '0';
+            }
+        });
+
+        // Scroll animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fasilitas-card, .syarat-card, .gallery-item, .spec-item').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'all 0.6s ease';
+            observer.observe(el);
+        });
+    </script>
+
+</body>
+</html>
